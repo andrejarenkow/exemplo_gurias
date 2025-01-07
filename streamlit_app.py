@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import seaborn as sns
-import matplotlib.pyplot as plt
+
 
 # Configuração inicial
 st.set_page_config(page_title="Exemplo gurias", page_icon=":beer:", layout="wide")
