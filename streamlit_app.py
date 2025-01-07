@@ -10,14 +10,18 @@ st.title("Gurias")
 # Leitura dos dados de dengue
 dados = pd.read_csv('dengue_resid_csv_2025.csv', encoding = 'latin1')
 
-# Seleção de ano
-ano = st.selectbox(label = 'Selecione o ano', options = sorted(dados['Ano'].unique()))
 
-# Filtro para ano
-filtro_ano = dados['Ano']==ano
+# Fazer um gráfico de casos por ano
+# Agrupar os dados por ano e somar os casos confirmados
+casos_por_ano = dados.groupby('Ano')['Confirmados'].sum().reset_index()
 
-# Aplicar filtro
-dados_ano = dados[filtro_ano]
+# Criar o gráfico de barras
+fig = px.bar(casos_por_ano, x='Ano', y='Confirmados', title='Casos Confirmados de Dengue por Ano',
+             labels={'Ano': 'Ano', 'Confirmados': 'Casos Confirmados'},
+             text='Confirmados')
 
-# mostrar dados
-dados_ano
+# Adicionar texto sobre as barras
+fig.update_traces(texttemplate='%{text:.2s}', textposition='outside')
+
+# Mostrar a figura
+st.plotly_chart(fig)
