@@ -11,7 +11,7 @@ st.title("Gurias")
 dados = pd.read_csv('dengue_resid_csv_2025.csv', encoding = 'latin1')
 
 # Seleção de ano
-ano = st.selectbox(label = 'Selecione o ano', options = dados['Ano'].unique())
+ano = st.selectbox(label = 'Selecione o ano', options = sorted(dados['Ano'].unique()))
 
 # Filtro para ano
 filtro_ano = dados['Ano']==ano
