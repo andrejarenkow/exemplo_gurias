@@ -7,12 +7,8 @@ st.set_page_config(page_title="Exemplo gurias", page_icon=":beer:", layout="wide
 # Título da página
 st.title("Gurias")
 
-# subtítulo
-st.subheader('Esse é um exemplo')
+# Leitura dos dados de dengue
+dados = pd.read_csv('dengue_resid_csv_2025.csv')
 
-# Parágrafo
-st.write("Este é um exemplo de aplicativo Streamlit.")
-
-# Botão
-if st.button("Clique aqui"):
-    st.write("Você clicou no botão!")
+# Mostrar os dados
+dados
