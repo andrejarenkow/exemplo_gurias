@@ -29,12 +29,3 @@ fig.update_traces(texttemplate='%{text:.2s}', textposition='outside')
 # Mostrar a figura
 st.plotly_chart(fig)
 
-# Fazer com o seaborn
-# Configurar estilo do Seaborn
-sns.set(style="whitegrid")
-
-# Criar o gráfico de barras
-plt.figure(figsize=(8, 6))
-ax = sns.barplot(data=casos_por_ano, x='Ano', y='Confirmados', palette='viridis')
-
-st.pyplot(ax)
