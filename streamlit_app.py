@@ -37,17 +37,4 @@ sns.set(style="whitegrid")
 plt.figure(figsize=(8, 6))
 ax = sns.barplot(data=casos_por_ano, x='Ano', y='Confirmados', palette='viridis')
 
-# Adicionar rótulos sobre as barras
-for p in ax.patches:
-    ax.annotate(f'{p.get_height()}', (p.get_x() + p.get_width() / 2., p.get_height()),
-                ha='center', va='baseline', fontsize=12, color='black', xytext=(0, 5),
-                textcoords='offset points')
-
-# Configurar título e rótulos
-plt.title('Casos Confirmados de Dengue por Ano', fontsize=16)
-plt.xlabel('Ano', fontsize=12)
-plt.ylabel('Casos Confirmados', fontsize=12)
-plt.xticks(fontsize=10)
-plt.yticks(fontsize=10)
-
 st.pyplot(ax)
